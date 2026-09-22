@@ -1,0 +1,17 @@
+info:
+  name: Test Guard
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: http://localhost:3000/auth/test
+  headers:
+    - name: Cookie
+      value: access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5YTZjNmJmZi1jNGVhLTQ2YzQtOTU1OC00MzhlMmQ2YzU0OWYiLCJ1c2VybmFtZSI6ImphY2siLCJpYXQiOjE3OTAxMDcyOTQsImV4cCI6MTc5MDExMDg5NH0.nv5-a6KSRfbar5UkpUtlU5bDPFml35hK6z0pQnk_KMA
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
