@@ -26,8 +26,8 @@ export class AuthController {
     }
 
     @UseGuards(AuthGuard)
-    @Get('test')
-    test() {
-        return "success";
+    @Get('verify')
+    verify() {
+        return true;
     }
 }
