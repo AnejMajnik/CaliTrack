@@ -2,10 +2,12 @@ import { createRouter, createWebHistory, type RouteRecordRaw } from "vue-router"
 import Home from "@/views/Home.vue";
 import Login from "@/views/Login.vue";
 import { useAuth } from "@/composables/authComposable";
+import Register from "@/views/Register.vue";
 
 const routes: RouteRecordRaw[] = [
     { path: '/', name: 'Home', component: Home, meta: { requiresAuth: true } },
     { path: '/login', name: 'Login', component: Login },
+    { path: '/register', name: 'Register', component: Register },
 ];
 
 const router = createRouter({

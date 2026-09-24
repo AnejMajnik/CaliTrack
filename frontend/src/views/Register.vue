@@ -1,20 +1,22 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import axios from "axios";
+import axios from 'axios';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
+const email = ref("");
 const username = ref("");
 const password = ref("");
 
-async function login() {
+async function register() {
   try {
-    const response = await axios.post('/api/auth/login', {
+    const response = await axios.post('/api/auth/register', {
+      email: email.value,
       username: username.value,
       password: password.value,
     });
-    await router.push('/');
+    await router.push('/login');
   } catch (error) {
     if (axios.isAxiosError(error)) {
       console.log(error.response?.status);
@@ -29,16 +31,17 @@ async function login() {
 <template>
   <div class="main">
     <h1>Cali Track</h1>
-    <h3>Please log in to proceed</h3>
+    <h3>Registration</h3>
     <div class="secondary">
+      <label for="email">Email</label>
+      <input v-model="email" type="text" id="email" class="fields">
       <label for="username">Username</label>
       <input v-model="username" type="text" id="username" class="fields">
       <label for="password">Password</label>
       <input v-model="password" type="password" id="password" class="fields">
     </div>
-    <button @click="login()" class="login-btn">Login</button>
-    <p style="margin-top: 20px">Don't have an account yet?</p>
-    <RouterLink to="/register">Register now</RouterLink>
+    <button @click="register()" class="login-btn">Register</button>
+    <RouterLink to="/login" style="margin-top: 10px">Back to Login</RouterLink>
   </div>
 </template>
 
